@@ -1,9 +1,9 @@
 onEachFrame {
 	center = [(getPos player)#0,(getPos player)#1,1];
-	//center = [5125.02,1459.66,1];
 	radius = 10;
-	sides = 64;
-	thickness = 8;
+	sides = 128;
+	thickness = 1;
+	fadeThickness = 1;
 
 	vector = VectorDir player;
 	vector = [1,0,0];
@@ -17,6 +17,11 @@ onEachFrame {
 
 		for "_x" from 1 to thickness step 1 do {
 			drawLine3D [point0, point1, [1,0,0,1]];
+		};
+
+		for "_x" from 1 to fadeThickness step 1 do {
+			drawLine3D [[point0#0, point0#1, (point0#2)/2], [point1#0, point1#1, (point1#2)/2], [0,0,0,1]];
+			drawLine3D [[point0#0, point0#1, 0], [point1#0, point1#1, 0], [0,0,0,1]];
 		};
 		point0 = point1;
 	};
