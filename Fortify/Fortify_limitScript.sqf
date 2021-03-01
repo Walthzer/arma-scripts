@@ -1,12 +1,12 @@
+//Add to init box of everything that is a Supply truck or supply box -> Allows building in local area around it.
 wfar_FortifySupplies = [];
-//Add
 if(isNil "wfar_FortifySupplies") then {
     wfar_FortifySupplies = [this];
 } else {
     _null = wfar_FortifySupplies pushBack this;
 };
 
-//Respawn
+//Respawn Add to the respawn module code field.
 if(isNil "wfar_FortifySupplies") then {
     wfar_FortifySupplies = [_this#0];
 } else {
@@ -14,6 +14,7 @@ if(isNil "wfar_FortifySupplies") then {
 };
 wfar_FortifySupplies = wfar_FortifySupplies - [objNull];
 
+//Add to Init of mission.
 [{
 params ["_unit", "_object"];
 if ([_unit] call ace_common_fnc_isEngineer) then {
